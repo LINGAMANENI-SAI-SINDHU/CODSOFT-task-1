@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Quiz Maker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #87CEEB, #FFA07A); /* Light Sky Blue to Light Salmon */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333; /* Dark gray text */
+        }
+
+        .quiz-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 80%; /* Adjust as needed */
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #FF69B4; /* Hot Pink */
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #E0FFFF; /* Light Cyan */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #F0FFF0; /* Honeydew */
+        }
+
+        .options label:hover {
+            background-color: #E6E6FA; /* Lavender */
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #3e8e41; /* Darker Green */
+        }
+
+        #results {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #008080; /* Teal */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Fun Quiz Time!</h1>
+
+        <div class="question">
+            <p>1. What is the capital of France?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="a"> A. London</label>
+                <label><input type="radio" name="q1" value="b"> B. Paris</label>
+                <label><input type="radio" name="q1" value="c"> C. Rome</label>
+                <label><input type="radio" name="q1" value="d"> D. Berlin</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. Which planet is known as the Red Planet?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="a"> A. Venus</label>
+                <label><input type="radio" name="q2" value="b"> B. Mars</label>
+                <label><input type="radio" name="q2" value="c"> C. Jupiter</label>
+                <label><input type="radio" name="q2" value="d"> D. Saturn</label>
+            </div>
+        </div>
+
+        <button onclick="showResults()">Submit Quiz</button>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function showResults() {
+            let score = 0;
+            const q1Answer = document.querySelector('input[name="q1"]:checked');
+            const q2Answer = document.querySelector('input[name="q2"]:checked');
+
+            if (q1Answer && q1Answer.value === 'b') {
+                score++;
+            }
+            if (q2Answer && q2Answer.value === 'b') {
+                score++;
+            }
+
+            document.getElementById('results').textContent = `Your score: ${score} out of 2`;
+        }
+    </script>
+
+</body>
+</html>
